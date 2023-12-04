@@ -120,3 +120,87 @@ function findPrimesSmallerThan(a) {
 };
 
 console.log(findPrimesSmallerThan(20));
+
+
+//Viết hàm kiểm tra số lượng ký tự mật khẩu, nếu mật khẩu nhập vào ngắn hơn 8 ký tự thì in ra là
+//“Mật khẩu không được ngắn hơn 8 ký tự), nếu mật khẩu nhập lớn hơn 8 ký tự thì in ra nội dung “Đăng ký tài khoản thành công”
+
+let newPassword = prompt("Nhập mật khẩu");
+const checkPasswordLength = (password) => {
+    if (password.length >= 8) {
+        return true
+    } else { return false }
+};
+if (!checkPasswordLength(newPassword)) { console.log("Mật khẩu không được ngắn hơn 8 ký tự") }
+else { console.log("Đăng ký tài khoản thành công") };
+
+//Tìm hiểu cách để chặn việc nhập ngày tháng năm bé hơn ngày hiện tại
+let scheduledDate = +prompt("Nhập ngày");
+const checkDate = (date) => {
+    let today = new Date();
+    if (date >= today) { return true }
+    else { return false }
+};
+if (checkDate(scheduledDate)) { console.log("Ngày hợp lệ"); }
+else { console.log("Ngày nhập vào phải lớn hơn hôm nay"); }
+
+// Xây dựng một hàm nhập vào một chuỗi và một ký tự bất kỳ, giá trị trả ra là một chuỗi mới có ký tự vừa nhập
+// vào sẽ là một chữ cái in hoa. Ví dụ: Nhập chuỗi “lâm xấu trai lắm” thành chuỗi “Lâm xấu trai Lắm”.
+
+let myString = prompt("Nhập chuỗi");
+console.log(myString);
+const convertRandomLowertoUpper = (input) => {
+    let string = input.toString();
+    let newString = "";
+    let lower = "m";
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === lower) { newString = newString.concat(lower.toUpperCase()) }
+        else { newString = newString.concat(string[i]) }
+    };
+    return newString
+};
+
+console.log(convertRandomLowertoUpper(myString));
+
+// Xây dựng hàm chuyển đổi từ độ C sang độ F và ngược lại từ độ F sang độ C.
+// Tạo hàm convertTemperature nhận vào 3 tham số, tham số 1 là giá trị cần chuyển đổi,
+// tham số 2 là đơn vị gốc (có thể là độ C hoặc độ F) ,
+// tham số 3 là giá trị chuyển đổi qua ( có thể là độ F hoặc độ C)
+
+let temp = +prompt("Nhập nhiệt độ ");
+let deg1 = prompt("Nhập đơn vị nhiệt độ gốc");
+let deg2 = prompt("Nhập đơn vị nhiệt độ chuyển đổi");
+const convertTemperature = (unit1, temparature, unit2) => {
+    let convertedTemp;
+    if (unit1 === "C" && unit2 === "F") { convertedTemp = temparature * 1.8 + 32 }
+    else if (unit1 === "F" && unit2 === "C") { convertedTemp = (temparature - 32) / 1.8 }
+    else if (unit1 === unit2 && (unit1 === "C" || unit1 === "F")) { convertedTemp = temparature }
+    else { return false };
+    return convertedTemp
+};
+if (!convertTemperature(deg1, temp, deg2)) { console.log("Nhập lại"); }
+else { console.log(convertTemperature(deg1, temp, deg2)); };
+
+// Xây dựng hàm để đếm số lần xuất hiện của một ký tự. Ví dụ khi mình gọi hàm: count(“a”, “anh day”) thì nó sẽ in ra là 2
+const count = (char, string) => {
+    let countChar = 0;
+    for (let i = 0; i <= string.length; i++) {
+        if (string[i] === char) { countChar++ }
+    };
+    return countChar;
+};
+
+let string10 = "xmv bguamjcjf a;fchucacfcn";
+console.log(count("a", string1));
+
+// Viết hàm đặt tên là findIndex() nhập vào một mảng số nguyên và một giá trị,
+// trả về vị trí xuất hiện của phần tử đó trong mảng, nếu không tìm thấy thì trả về -1.
+
+function findIndex(a, array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === a) { return i }
+    };
+    { return -1 }
+};
+let array10 = [1, "c", "v", "s", 34, 5, 2, 5, 2];
+console.log(findIndex("s", array1));
